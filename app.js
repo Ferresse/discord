@@ -12,8 +12,7 @@ startButton.addEventListener("click", () => {
         function increment() {
             if (i < hookCount.value) {
                 i++;
-                console.log(i);
-                const fetchRespone = fetch(hookUrl.value, {
+                fetch(hookUrl.value, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -32,6 +31,6 @@ startButton.addEventListener("click", () => {
     } else {
         alert("Put values in");
     }
-    console.log(fetchRespone);
-    let incrementInterval = setInterval(increment(), hookDelay.value || 500);
+
+    let incrementInterval = setInterval(increment, hookDelay.value || 500);
 });
