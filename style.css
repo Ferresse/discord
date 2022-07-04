@@ -5,6 +5,7 @@ html {
 main {
     display: grid;
 }
+
 .buttonHolder {
     display: grid;
     justify-content: center;
