@@ -1,15 +1,33 @@
 const startButton = document.querySelector("#start");
-var hookUrl = document.querySelector("#hookUrl");
-var hookName = document.querySelector("#hookName");
-var hookMessage = document.querySelector("#message");
-var hookAvatar = document.querySelector("#avatarUrl");
-var hookCount = document.querySelector("#count");
-var hookDelay = document.querySelector("#delay");
+var hookUrl = document.getElementById("hookUrl");
+var hookName = document.getElementById("hookName");
+var hookMessage = document.getElementById("message");
+var hookAvatar = document.getElementById("avatarUrl");
+var hookCount = document.getElementById("count");
+var hookDelay = document.getElementById("delay");
 
 startButton.addEventListener("click", () => {
-    parseInt(document.querySelector("#count").value);
-    console.log(hookCount);
-    for (let i = 0; i < hookCount; i++) {
-        console.log("work");
+    if (hookCount.value != 0 && hookUrl.value != 0 && hookMessage.value != 0) {
+        for (let i = 0; i < hookCount.value; i++) {
+            let delayInterval = setInterval(() => {
+                console.log("x", i);
+                // fetch(hookUrl.value, {
+                //     method: "POST",
+                //     headers: {
+                //         "Content-Type": "application/json",
+                //     },
+                //     body: JSON.stringify({
+                //         username: hookName.value || "hooker",
+                //         avatar_url: hookAvatar.value || "",
+                //         content: hookMessage.value || ".",
+                //     }),
+                // });
+                if (i === hookCount.value) {
+                    clearInterval(delayInterval);
+                }
+            }, 500);
+        }
+    } else {
+        alert("Put values in");
     }
 });
